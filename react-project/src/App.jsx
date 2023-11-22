@@ -1,33 +1,26 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { TaskForm, TaskList } from './components'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  // estado global de las tareas
+  const [tareas, setTareas] = useState([])
+  
+  // funcion que agrega las tareas al estado tarea
+  const nuevaTarea = (tarea) =>{
+    setTareas([...tareas, tarea])
+  }
+  
+  // funcion que elimina las tareas al estado tarea
+  const borrarTarea = (tareaId) =>{
+    setTareas(tareas.filter(tarea => tarea.id != tareaId)) 
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <TaskForm nuevaTarea={nuevaTarea}/>
+      <TaskList tareas={tareas} borrarTarea={borrarTarea}/>
     </>
   )
 }
