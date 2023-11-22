@@ -29,8 +29,8 @@ const TaskForm = ({ nuevaTarea }) => {
     }
 
     return (
-        <div>
-            <button onClick={openModal}>
+        <div className='move'>
+            <button className='new' onClick={openModal}>
                 Nueva Tarea
             </button>
             {

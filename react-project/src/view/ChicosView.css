@@ -1,0 +1,15 @@
+.chicosview{
+    max-width: 90%;
+    padding: 15px;
+    text-align: center;
+}
+
+.chicosview h2{
+    padding: 10px;
+}
+
+.chicosview img{
+    padding: 15px;
+    width: 460px;
+    height: 450px;
+}

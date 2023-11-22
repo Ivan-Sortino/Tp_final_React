@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+.sidebar {
+    width: 0;
+    height: 100%;
+    background-color: purple;
+    overflow-x: hidden;
+    position: fixed;
+    transition: 0.5s;
+    padding-top: 60px;
+    color: white;
+  }
+  
+  .sidebar.open {
+    width: 250px;
+  }
+  
+  .toggle-btn {
+    font-size: 23px;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    color: #000;
+    background: transparent;
+    border: none;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 15px;
+    background-color: purple;
+  }
+  
+  li:hover {
+    background-color: #000;
+  }
+
+  Link {
+    text-decoration: none;
+  }
+  
