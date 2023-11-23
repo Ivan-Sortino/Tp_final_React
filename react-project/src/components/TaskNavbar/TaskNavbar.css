@@ -1,0 +1,100 @@
+/* taskNavbar */
+:root {
+    --bg-dark-blue: #051027e5;
+    --clr-white: #f1f1f1;
+    --border-radius: .3em;
+    --bg-side-mobile: #051027;
+    --clr-red: #f24a4a;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .8em 2em;
+    backdrop-filter: blur(10px);
+    background-color: var(--bg-dark-blue);
+    color: var(--clr-white);
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.logo {
+    width: 2.5em;
+}
+
+.logoText {
+    font-weight: 500;
+}
+
+.taskManagerWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 1em;
+}
+
+.inputTaskSeach {
+    border: none;
+    border-radius: var(--border-radius);
+    padding: .6em .65em;
+    outline: none;
+    width: 25em;
+}
+
+:is(.taskManagerMobile, .taskMobile) {
+    display: none;
+}
+
+/* media queries */
+@media screen and (max-width:675px) {
+
+    .taskMobile {
+        display: flex;
+        align-items: center;
+        gap: .8em;
+    }
+
+    .taskManagerMobile {
+        display: block;
+    }
+
+    .barsDesktop {
+        color: var(--clr-white);
+        font-size: 1.5em;
+    }
+
+    .taskManagerDesktop {
+        display: none;
+    }
+
+    .taskManagerMobile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1.4em;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 20em;
+        height: 100vh;
+        background-color: var(--bg-side-mobile);
+        padding: 1.5em;
+    }
+
+    .btnCloseSidebarMobile {
+        color: var(--clr-white);
+    }
+
+    .btnCloseSidebarMobile:hover {
+        color: var(--clr-red);
+    }
+
+    .inputTaskSeach {
+        width: 100%;
+    }
+}

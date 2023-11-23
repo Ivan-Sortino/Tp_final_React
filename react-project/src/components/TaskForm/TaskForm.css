@@ -1,40 +1,150 @@
-.modal-background{
+/* taskform */
+:root {
+    --border-radius: .3em;
+    --clr-white: #f1f1ff;
+    --bg-blue: #2963d5;
+    --bg-blue-hover: #1c49a3;
+    --bg-red: #f24a4a;
+    --bg-red-hover: #ba2727;
+    --bg-dark-blue: #051027e5;
+    --bg-white: #fff;
+}
+
+.modalBackground {
     background-color: rgba(0, 0, 0, 0.435);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.modal {
+    padding: 1.5em 2.2em;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-white);
+    color: #111;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: 35em;
+}
+
+.modalTop {
+    display: flex;
     align-items: center;
-}
-
-.modal{
-    padding: 15px;
-    border-radius: 10px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    width: 30vw;
-}
-
-.input-container{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    gap: 10px;
-    width: 100%;
-}
-
-.input-container textarea{
-    width: 100% ;
-    height: 200px;
-}
-
-.btn-container{
-    display: flex;
-    width: 100%;
     justify-content: space-between;
+}
+
+.btnCloseModal {
+    cursor: pointer;
+    padding: .3em .5em;
+    border: none;
+    background-color: transparent;
+    border-radius: var(--border-radius);
+}
+
+.btnCloseModal:hover {
+    background-color: var(--bg-red);
+}
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    margin-top: .8em;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.textarea {
+    height: 10em;
+    resize: none;
+}
+
+:is(.input, .textarea) {
+    background-color: var(--bg-dark-blue);
+    padding: .6em .8em;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    color: var(--clr-white);
+}
+
+:is(.input, .textarea)::placeholder {
+    color: #f1f1ff8a;
+}
+
+:is(.input, .textarea):hover {
+    background-color: #0c214fe5;
+}
+
+:is(.input, .textarea):focus {
+    background-color: #123071e5;
+}
+
+.btnWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+:is(.btnCancel, .btnSend, .btnAddTask) {
+    padding: .6em .65em;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+}
+
+.btnCancel {
+    background-color: var(--bg-red);
+}
+
+.btnCancel:hover {
+    background-color: var(--bg-red-hover);
+}
+
+.btnSend {
+    background-color: var(--bg-blue);
+    color: var(--clr-white);
+}
+
+.btnSend:hover {
+    background-color: var(--bg-blue-hover);
+}
+
+.btnAddTask {
+    background-color: var(--bg-blue);
+    color: var(--clr-white);
+    display: flex;
+    gap: .5em;
+    font-weight: 500;
+}
+
+.btnAddTask:hover {
+    background-color: var(--bg-blue-hover);
+}
+
+/* media queries */
+@media screen and (max-width:600px) {
+    .modal {
+        width: 30em;
+    }
+}
+
+@media screen and (max-width:515px) {
+    .modal {
+        width: 25em;
+    }
+}
+
+@media screen and (max-width:490px) {
+    .modal {
+        width: 20em;
+    }
 }

@@ -1,0 +1,32 @@
+/* tasklist */
+:root {
+    --clr-red: #f24a4a;
+}
+
+.taskListWrapper {
+    padding: .8em 2em;
+}
+
+.gridTemplate {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2em;
+}
+
+.taskListEmpty {
+    font-size: 1.2em;
+    color: var(--clr-red);
+}
+
+/* media queries */
+@media screen and (max-width:780px) {
+    .gridTemplate {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width:490px) {
+    .gridTemplate {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

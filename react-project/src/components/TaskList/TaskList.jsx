@@ -1,18 +1,22 @@
-import React from 'react'
-import TaskItem from '../TaskItem/TaskItem'
+import React from 'react';
+import TaskItem from '../TaskItem/TaskItem';
+import './TaskList.css';
 
-const TaskList = ({ tareas, borrarTarea }) => {
+const TaskList = ({currentTasks, deleteTask}) => {
   return (
-    <div>
+    // si el estado de las tareas no esta vacio se le agrega una clase al ul para que su display sea en grilla y el h2 que se renderiza si no hay tareas pueda abarcar todo su ancho
+    <ul className={`taskListWrapper ${currentTasks!= 0 && 'gridTemplate'}`}>
       {
-        tareas.length == 0
-          ? <h2>Aun no has ingresado tareas</h2>
-          : tareas.map(tarea => (
-            <TaskItem tarea={tarea} key={tarea.id} borrarTarea={borrarTarea} />
+        currentTasks.length == 0
+          ? <h2 className='taskListEmpty'>
+            Aun no has ingresado tareas a tu lista :(
+            </h2>
+          : currentTasks.map(currentTask => (
+            <TaskItem currentTask={currentTask} key={currentTask.id} deleteTask={deleteTask} />
           ))
       }
-    </div>
+    </ul>
   )
-}
+};
 
-export default TaskList
+export default TaskList;
