@@ -1,32 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import "./TaskForm.css"
-
+import "./TaskForm.css";
 
 const TaskForm = ({ addTasks }) => {
 
-    // estado que maneja la visibilidad del modal
-    const [openModal, setOpenModal] = useState(false)
+    // estado que maneja la visibilidad del modal, comienza en false para que no sea visible
+    const [openModal, setOpenModal] = useState(false);
 
     // accion para cerrar el modal
     const handleCloseModal = () => {
-        setOpenModal(false)
-    }
+        setOpenModal(false);
+    };
 
     // accion para abrir el modal
     const handleOpenModal = () => {
-        setOpenModal(true)
-    }
-
-
+        setOpenModal(true);
+    };
+    
+    // manejador del evento submit de la tarea
     const handleSubmitTask = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
         const title = e.target.title.value //capturamos el titulo del input
         const description = e.target.description.value //capturamos la descripcion del input
         const task = { title, description, createAt: new Date().toDateString(), id: uuidv4() } //tarea
-        addTasks(task) //agrega la tarea al estado global
+        addTasks(task); //agrega la tarea al estado global
         handleCloseModal(); // cierra el modal
-    }
+    };
 
     return (
         <div>
@@ -41,13 +41,13 @@ const TaskForm = ({ addTasks }) => {
                     <div className='modal'>
                         <div className='modalTop'>
                             <h2>Agregar nueva tarea</h2>
-                            <button
+                            <button 
                                 className='btnCloseModal'
                                 onClick={handleCloseModal}>
                                 <i className="bi bi-x-lg"></i>
                             </button>
                         </div>
-                        <form
+                        <form 
                             onSubmit={handleSubmitTask}
                             className='formWrapper'>
                             <div className='inputWrapper'>
@@ -61,19 +61,19 @@ const TaskForm = ({ addTasks }) => {
                             </div>
                             <div className='inputWrapper'>
                                 <label htmlFor="description">Ingrese la descripcion para su tarea:</label>
-                                <textarea
-                                    name="description"
-                                    id="description"
-                                    placeholder='descripcion / aclaracion'
+                                <textarea 
+                                    name="description" 
+                                    id="description" 
+                                    placeholder='descripcion / aclaracion' 
                                     className='textarea'
-                                >
+                                    >
                                 </textarea>
                             </div>
                             <div className='btnWrapper'>
-                                <button
+                                <button 
                                     onClick={handleCloseModal}
                                     className='btnCancel'>Cancelar</button>
-                                <button
+                                <button 
                                     type='submit'
                                     className='btnSend'>Agregar</button>
                             </div>
@@ -84,6 +84,6 @@ const TaskForm = ({ addTasks }) => {
 
         </div>
     )
-}
+};
 
-export default TaskForm
+export default TaskForm;

@@ -1,23 +1,22 @@
 import { useState, useEffect } from 'react';
-import { TaskNavbar, TaskList, BoysViews } from './components';
+import { TaskNavbar, TaskList } from './components';
 import './App.css';
 
 function App() {
 
-  
   // estado global de las tareas
   const [tasks, setTasks] = useState([]);
   const [currentTasks, setCurrentTasks] = useState([]);
   const [searchString, setSearhString] = useState('');
 
   // funcion que agrega las tareas al estado tarea, y hacemos un spread(...) del array de tareas y le agregamos la tarea que traemos como parametro
-  const addTasks = (task) => {
+  const addTasks = (task) =>{
     setTasks([...tasks, task]);
   };
-
+  
   // funcion que elimina las tareas al estado tarea, con el filter, lo que hacemos es retornar todas las tareas.id que sean diferentes al id que pasamos como parametro
-  const deleteTask = (tareaId) => {
-    setTasks(tasks.filter(tarea => tarea.id != tareaId))
+  const deleteTask = (tareaId) =>{
+    setTasks(tasks.filter(tarea => tarea.id != tareaId)) 
   };
 
   // manejador del input de los filtros de las tareas
@@ -31,15 +30,14 @@ function App() {
     setCurrentTasks(tasks.filter((task) => task.title.toLowerCase().includes(searchString.toLowerCase())));
   }, [searchString, tasks]);
 
-
   return (
     <section className='app'>
-      <TaskNavbar
-        addTasks={addTasks}
-        searchString={searchString}
-        handleChangeFilter={handleChangeFilter}
+      <TaskNavbar 
+        addTasks={addTasks} 
+        searchString={searchString} 
+        handleChangeFilter={handleChangeFilter} 
       />
-      <TaskList currentTasks={currentTasks} deleteTask={deleteTask} />
+      <TaskList currentTasks={currentTasks} deleteTask={deleteTask}/>
     </section>
   )
 };
