@@ -66,6 +66,7 @@
     .barsDesktop {
         color: var(--clr-white);
         font-size: 1.5em;
+        cursor: pointer;
     }
 
     .taskManagerDesktop {
@@ -88,6 +89,7 @@
 
     .btnCloseSidebarMobile {
         color: var(--clr-white);
+        cursor: pointer;
     }
 
     .btnCloseSidebarMobile:hover {

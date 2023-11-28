@@ -23,7 +23,7 @@ const TaskForm = ({ addTasks }) => {
 
         const title = e.target.title.value //capturamos el titulo del input
         const description = e.target.description.value //capturamos la descripcion del input
-        const task = { title, description, createAt: new Date().toDateString(), id: uuidv4() } //tarea
+        const task = { title, description, createAt: new Date().toLocaleDateString(), id: uuidv4() } //tarea
         addTasks(task); //agrega la tarea al estado global
         handleCloseModal(); // cierra el modal
     };
