@@ -2,12 +2,15 @@ import { useState, useEffect } from 'react';
 import { TaskNavbar, TaskList } from './components';
 import './App.css';
 
+const modeDarkLS = JSON.parse(localStorage.getItem('isDark')) || false;
+
 function App() {
 
   // estado global de las tareas
   const [tasks, setTasks] = useState([]);
   const [currentTasks, setCurrentTasks] = useState([]);
   const [searchString, setSearhString] = useState('');
+  const [modeDark, setModeDark] = useState(modeDarkLS);
 
   // funcion que agrega las tareas al estado tarea, y hacemos un spread(...) del array de tareas y le agregamos la tarea que traemos como parametro
   const addTasks = (task) =>{
@@ -30,12 +33,25 @@ function App() {
     setCurrentTasks(tasks.filter((task) => task.title.toLowerCase().includes(searchString.toLowerCase())));
   }, [searchString, tasks]);
 
+  // efecto que maneja el estado del modo escuro
+  const handleModeDark = () => {
+    setModeDark(!modeDark);
+  }
+  
+  // useEffect que maneja el seteo del localStorage
+  useEffect(() => {
+    localStorage.setItem('isDark', JSON.stringify(modeDark));
+  }, [modeDark]);
+  
+
   return (
-    <section className='app'>
+    <section className={`app ${modeDark && 'appModeDark'}`}>
       <TaskNavbar 
         addTasks={addTasks} 
         searchString={searchString} 
         handleChangeFilter={handleChangeFilter} 
+        handleModeDark={handleModeDark}
+        modeDark={modeDark}
       />
       <TaskList currentTasks={currentTasks} deleteTask={deleteTask}/>
     </section>

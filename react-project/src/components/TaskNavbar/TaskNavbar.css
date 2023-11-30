@@ -1,10 +1,13 @@
 /* taskNavbar */
 :root {
-    --bg-dark-blue: #051027e5;
     --clr-white: #f1f1f1;
     --border-radius: .3em;
-    --bg-side-mobile: #051027;
     --clr-red: #f24a4a;
+    --border-clr: #1138d4;
+    --bg-navbar: #d0d0d6;
+    --bg-navbar-DK: #1f1f20;
+    --bg-input-searh: #f1f1f1;
+    --bg-input-searh-DK: #f1f1f1;
 }
 
 .navbar {
@@ -13,7 +16,12 @@
     justify-content: space-between;
     padding: .8em 2em;
     backdrop-filter: blur(10px);
-    background-color: var(--bg-dark-blue);
+    background-color: var(--bg-navbar);
+    border-bottom: 2px solid var(--border-clr);
+}
+
+.navBarModeDark {
+    background-color: var(--bg-navbar-DK);
     color: var(--clr-white);
 }
 
@@ -33,70 +41,51 @@
 
 .taskManagerWrapper {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: flex-end;
+    flex-wrap: wrap;
     gap: 1em;
 }
 
-.inputTaskSeach {
+.inputTaskSearch {
     border: none;
     border-radius: var(--border-radius);
     padding: .6em .65em;
     outline: none;
-    width: 25em;
+    width: 18em;
+    background-color: var(--bg-input-searh);
 }
 
-:is(.taskManagerMobile, .taskMobile) {
-    display: none;
+.inputTaskSearhModeDark {
+    background-color: var(--bg-input-searh-DK);
+}
+
+.btnHandleMode {
+    color: #1f1f20;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.btnHandleModeDK {
+    color: var(--clr-white);
+}
+
+.btnModeDark:hover {
+    transform: scale(1.1);
 }
 
 /* media queries */
-@media screen and (max-width:675px) {
-
-    .taskMobile {
-        display: flex;
-        align-items: center;
-        gap: .8em;
-    }
-
-    .taskManagerMobile {
-        display: block;
-    }
-
-    .barsDesktop {
-        color: var(--clr-white);
-        font-size: 1.5em;
-        cursor: pointer;
-    }
-
-    .taskManagerDesktop {
-        display: none;
-    }
-
-    .taskManagerMobile {
-        display: flex;
+@media screen and (max-width:668px) {
+    .navbar {
         flex-direction: column;
-        align-items: flex-end;
-        gap: 1.4em;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 20em;
-        height: 100vh;
-        background-color: var(--bg-side-mobile);
-        padding: 1.5em;
+        row-gap: 1.2em;
     }
 
-    .btnCloseSidebarMobile {
-        color: var(--clr-white);
-        cursor: pointer;
-    }
-
-    .btnCloseSidebarMobile:hover {
-        color: var(--clr-red);
+    .taskManagerWrapper {
+        width: 100%;
     }
 
     .inputTaskSeach {
-        width: 100%;
+        flex: 1;
     }
 }

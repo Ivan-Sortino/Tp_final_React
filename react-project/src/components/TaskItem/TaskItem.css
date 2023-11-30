@@ -2,11 +2,14 @@
 :root {
     --bg-red: #f24a4a;
     --bg-item-card: #2962d53a;
+    --bg-item-card-DK: #1c49a3f1;
+    --clr-gray: #9c9898;
 }
-
 
 .taskItemCard {
     background-color: var(--bg-item-card);
+    background-color: var(--bg-item-card-DK);
+    color: var(--clr-gray);
     list-style: none;
     padding: 1.2em;
     border-radius: .3em;

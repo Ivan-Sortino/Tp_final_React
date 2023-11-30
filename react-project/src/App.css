@@ -10,9 +10,15 @@
 .app{
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+}
+
+.appModeDark{
+    background-color: #111;
 }
 
 button{
     border: none;
     background-color: transparent;
+    color: #fff;
 }
